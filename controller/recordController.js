@@ -38,27 +38,6 @@ export const addRecord = async (req, res) => {
   }
 };
 
-export const patchRecord = async (req, res) => {
-  const uid = req.uid; //? user id
-  const patient_id = req.params; //? patient id
-  const { description, preci, id } = req.body; //? id pacht
-  try {
-    const patient = await Patient.findOne({
-      where: { id: patient_id.id, user_id: uid },
-    });
-
-    if (!patient) return res.sendStatus(400);
-    const record = await Records.findOne({
-      where: { id, patient_id: patient_id.id },
-    });
-    if (!record) return res.sendStatus(404);
-    await record.update({ description, preci });
-    return res.sendStatus(200);
-  } catch (error) {
-    return res.sendStatus(500);
-  }
-};
-
 export const deleteRecord = async (req, res) => {
   const uid = req.uid; //? user id
   const { id } = req.params; //? record id

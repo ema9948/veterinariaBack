@@ -19,11 +19,6 @@ recordRoute.post(
   addRecordValid,
   addRecord
 );
-recordRoute.patch(
-  "/patchRecord/:id",
-  jwtVefiryMiddleware,
-  patchRecordValid,
-  patchRecord
-);
+
 recordRoute.delete("/deleteRecord/:id", jwtVefiryMiddleware, deleteRecord);
 export default recordRoute;
