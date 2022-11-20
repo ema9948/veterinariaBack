@@ -12,18 +12,17 @@ const app = express();
 
 const whitelist = [process.env.URL_FRONT, process.env.URL_FRONT2];
 
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       if (whitelist.indexOf(origin) !== -1) {
-//         callback(null, true);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//   })
-// );
-app.use(cors({ origin: "*" }));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
+);
 app.use(express.json());
 sync();
 
