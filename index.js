@@ -6,7 +6,9 @@ import cors from "cors";
 import patienRoute from "./router/PatientRoute.js";
 import recordRoute from "./router/Record.js";
 import userRoute from "./router/UserRoute.js";
-import sync from "./utils/syncModels.js";
+import User from "./model/User.js";
+import Patient from "./model/Patient.js";
+import Records from "./model/Records.js";
 
 const app = express();
 
@@ -24,7 +26,9 @@ app.use(
   })
 );
 app.use(express.json());
-sync();
+User.sync();
+Patient.sync();
+Records.sync();
 
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/patient", patienRoute);
