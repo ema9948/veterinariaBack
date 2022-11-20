@@ -26,6 +26,7 @@ app.use(
   })
 );
 app.use(express.json());
+
 User.sync();
 Patient.sync();
 Records.sync();
