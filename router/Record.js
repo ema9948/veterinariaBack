@@ -3,12 +3,8 @@ import {
   addRecord,
   allRecords,
   deleteRecord,
-  patchRecord,
 } from "../controller/recordController.js";
-import {
-  addRecordValid,
-  patchRecordValid,
-} from "../middleware/expressValidator.js";
+import { addRecordValid } from "../middleware/expressValidator.js";
 import { jwtVefiryMiddleware } from "../middleware/jwtVerifi.js";
 const recordRoute = Router();
 

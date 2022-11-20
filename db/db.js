@@ -1,13 +1,17 @@
 import { Sequelize } from "sequelize";
 const host = process.env.URI;
 const dbname = process.env.NAME;
-const username = process.env.USERNAME;
+const username = process.env.USERNAMEDB;
 const password = process.env.USERPASS;
-
-const sequelize = new Sequelize("veterinaria", "root", "", {
-  host: "localhost",
+const sequelize = new Sequelize(dbname, username, password, {
+  host: host,
   dialect: "mysql",
   logging: false,
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: true,
+    },
+  },
   define: {
     timestamps: false,
   },

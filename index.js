@@ -31,4 +31,4 @@ app.use("/api/v1/patient", patienRoute);
 app.use("/api/v1/record", recordRoute);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log("DB ✌"));
+app.listen(PORT, () => console.log("Server ✌"));
